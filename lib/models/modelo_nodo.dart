@@ -5,8 +5,19 @@ class ModeloNodo {
   double y;
   double radio;
   Color color;
-  String titulo; // Nombre del paciente o veterinaria
-  String tipo;   // 'domicilio' o 'clinica'
+  String titulo;
+  String tipo;   // 'Veterinaria', 'Domicilio', 'Urgencia', 'Inicio'
+  int? orden;    // Número de secuencia en la ruta
+  bool esInicio; // Bandera para identificar el punto de partida
 
-  ModeloNodo(this.x, this.y, this.radio, this.color, this.titulo, this.tipo);
+  ModeloNodo(
+    this.x,
+    this.y,
+    this.radio,
+    this.color,
+    this.titulo,
+    this.tipo, {
+    this.orden,
+    this.esInicio = false,
+  });
 }

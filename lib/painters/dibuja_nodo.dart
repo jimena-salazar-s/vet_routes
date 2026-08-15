@@ -29,7 +29,6 @@ class DibujaNodo extends CustomPainter {
     Paint paintNodo = Paint()..style = PaintingStyle.fill;
 
     for (var ele in vNodo) {
-      // Feedback visual: si es el nodo origen seleccionado, lo oscurecemos
       if (ele == nodoOrigen) {
         paintNodo.color = Colors.amber.shade800;
       } else {
@@ -38,13 +37,12 @@ class DibujaNodo extends CustomPainter {
 
       canvas.drawCircle(Offset(ele.x, ele.y), ele.radio, paintNodo);
 
-      // Dibujar texto o etiqueta dentro del nodo (opcional para identificarlo)
       TextPainter textPainter = TextPainter(
         text: TextSpan(
-          text: ele.titulo,
+          text: ele.orden != null ? '${ele.orden}' : (ele.esInicio ? 'I' : ele.titulo),
           style: const TextStyle(
             color: Colors.white,
-            fontSize: 12,
+            fontSize: 10,
             fontWeight: FontWeight.bold,
           ),
         ),
